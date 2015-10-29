@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 
 gem 'thin', '~> 1.6.3'
+gem 'slim-rails'
+gem 'nested_form'
 
 group :development do
   gem 'better_errors'

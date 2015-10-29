@@ -1,0 +1,19 @@
+= link_to t('contacts.edit.cancel'), @contact
+
+= nested_form_for(@contact) do |f|
+  = f.text_field :first_name
+  = f.text_field :last_name
+
+  = f.label :emails
+  = f.fields_for :emails do |email_form|
+    = email_form.text_field :email
+    = email_form.link_to_remove '[x]'
+  p = f.link_to_add '+', :emails
+
+  = f.label :phones
+  = f.fields_for :phones do |phone_form|
+    = phone_form.text_field :phone
+    = phone_form.link_to_remove '[x]'
+  p = f.link_to_add '+', :phones
+
+  = f.submit

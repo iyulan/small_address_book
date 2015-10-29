@@ -1,0 +1,14 @@
+h3 = @contact.full_name
+
+= link_to '<-', contacts_path
+
+ul = t('.phones')
+- @contact.phones_list.each do |phone|
+  li = phone
+
+ul = t('.emails')
+- @contact.emails_list.each do |email|
+  li = email
+
+p = link_to t('.edit'), edit_contact_path(@contact)
+p = link_to t('.delete'), contact_path(@contact), method: :delete, data: { confirm: t('.delete_confirm') }

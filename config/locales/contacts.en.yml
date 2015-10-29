@@ -1,0 +1,20 @@
+en:
+  contacts:
+    edit:
+      cancel: 'Cancel'
+    index:
+      title: 'Contacts'
+      table:
+        full_name: 'Full name'
+        emails: 'Emails'
+        phones: 'Phones'
+      add: 'Add'
+    new:
+      title: 'Contact'
+    show:
+      phones: 'Phones'
+      emails: 'E-mails'
+      edit: 'Edit'
+      delete: 'Delete'
+      delete_confirm: 'Are you sure?'
+

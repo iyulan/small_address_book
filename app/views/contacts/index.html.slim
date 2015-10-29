@@ -1,0 +1,13 @@
+h3 = t('.title')
+
+p = link_to t('.add'), new_contact_path
+
+table
+  thead
+    tr
+      th= t('.table.full_name')
+      th= t('.table.emails')
+      th= t('.table.phones')
+      th
+  tbody
+    = render partial: 'contact', collection: @contacts
