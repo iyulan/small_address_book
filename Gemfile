@@ -15,17 +15,17 @@ group :development do
   gem 'better_errors'
 end
 
+group :test, :development do
+  gem 'pry'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'web-console', '~> 2.0'
+  gem 'spring', '~> 1.4.0'
+  gem 'rubocop', require: false
+end
+
 group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
-end
-
-group :development, :test do
-  gem 'pry'
-  gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
-  gem 'web-console', '~> 2.0'
-  gem 'spring', '~> 1.4.0'
-  gem 'rubocop', require: false
 end
