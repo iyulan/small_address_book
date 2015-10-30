@@ -47,7 +47,17 @@ class ContactsController < ApplicationController
     send_file(filename, filename: 'contacts.csv', type: 'application/csv')
   end
 
+  def share
+    load_contact
+    share_contact
+  end
+
   private
+
+  def share_contact
+    ContactMailer.share(@contact, params[:mail_to]).deliver_now if params[:mail_to].blank?
+    redirect_to @contact, notice: params[:mail_to].present? ? t('.success') : t('.failed')
+  end
 
   def load_contacts
     @contacts ||= contact_scope.to_a

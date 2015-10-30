@@ -1,0 +1,7 @@
+en:
+  contact_mailer:
+    share:
+      subject: "Share info about %{full_name}"
+      title: 'Info'
+      emails: 'E-mails'
+      phones: 'Phones'

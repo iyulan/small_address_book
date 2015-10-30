@@ -6,5 +6,9 @@ Rails.application.routes.draw do
       post :import
       get :export
     end
+
+    member do
+      get :share
+    end
   end
 end

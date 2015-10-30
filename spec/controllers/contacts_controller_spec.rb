@@ -87,4 +87,15 @@ describe ContactsController do
       end
     end
   end
+
+  describe 'GET share' do
+    let(:mail_to) { Faker::Internet.safe_email }
+    before do
+      get :share, id: contacts.first, mail_to: mail_to
+    end
+
+    it 'redirect to contact' do
+      expect(response).to redirect_to(contacts.first)
+    end
+  end
 end

@@ -23,6 +23,13 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       delete_confirm: 'Are you sure?'
+      share: 'Share'
+    share:
+      success: 'Send email success!'
+      failed: 'Send email failed!'
+  mailer:
+    contact:
+      subject: "Share info about %{full_name}"
   activerecord:
     errors:
       models:

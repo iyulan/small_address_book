@@ -12,3 +12,8 @@ ul = t('.emails')
 
 p = link_to t('.edit'), edit_contact_path(@contact)
 p = link_to t('.delete'), contact_path(@contact), method: :delete, data: { confirm: t('.delete_confirm') }
+
+h3 = t('.share')
+= form_tag share_contact_path(@contact), method: :get do
+  = text_field_tag :mail_to, '', placeholder: 'user@example.com'
+  = submit_tag t('.share')

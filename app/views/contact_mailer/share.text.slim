@@ -1,0 +1,16 @@
+= t('.title')
+| ===============================================
+
+= @contact.full_name
+
+| -----------------------------------------------
+
+= t('.emails')
+- @contact.emails_list.each do |email|
+  = email
+
+| -----------------------------------------------
+
+= t('.phones')
+- @contact.phones_list.each do |phone|
+  = phone

@@ -1,0 +1,13 @@
+h3 = t('.title')
+
+b = @contact.full_name
+
+h4 = t('.emails')
+ul
+  - @contact.emails_list.each do |email|
+    li = email
+
+h4 = t('.phones')
+ul
+  - @contact.phones_list.each do |phone|
+    li = phone
