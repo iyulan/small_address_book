@@ -1,15 +1,29 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ContactHelper. For example:
-#
-# describe ContactHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe ContactsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe ContactsHelper do
+  describe '#view_errors' do
+    context 'when contact invalid' do
+      let!(:contact) { build(:contact, emails_count: 0) }
+
+      before { contact.valid? }
+
+      it 'return activerecord errors' do
+        expect(view_errors(contact.errors)).to include(t('activerecord.errors.models.contact.attributes.emails.blank'))
+      end
+    end
+
+    context 'when simple error' do
+      it 'return error' do
+        expect(view_errors('error')).to include('error')
+      end
+    end
+  end
+
+  describe '#messages' do
+    let(:notice) { { notice: 'notice' } }
+
+    it 'return notice' do
+      expect(messages(notice)).to include(notice[:notice])
+    end
+  end
 end

@@ -1,3 +1,116 @@
 // Place all the styles related to the Contact controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+.table-wrapper {
+  position: relative;
+}
+
+.table-scroll {
+  height: 400px;
+  overflow: auto;
+  margin-top: 20px;
+  width: $width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-wrapper table {
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.table-wrapper table tbody td {
+  text-align: left;
+  border-bottom: 1px solid $table_border;
+  height: 30px;
+}
+
+.foot-head {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  width: $contacts_width;
+}
+
+.table-wrapper table thead th {
+  @extend .foot-head;
+  top: -50px;
+  height: 50px;
+}
+
+.table-wrapper table tfoot th {
+  @extend .foot-head;
+  bottom: -20px;
+  height:30px;
+}
+
+#contacts {
+  float: left;
+  font-weight: bold;
+}
+
+#add {
+  float: right;
+}
+
+.actions {
+  margin-left: auto;
+  margin-right: auto;
+  width: $width;
+  display: block;
+  height: 40px;
+}
+
+.show {
+  margin-left: auto;
+  margin-right: auto;
+  width: $width;
+  display: block;
+}
+
+.contacts {
+  min-height: 120px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.show-footer {
+  height: 60px;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+}
+
+.unfloat {
+  float: none;
+}
+
+.form-contacts {
+  min-height: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.field_with_errors {
+  text-align: left;
+  color: red;
+  padding-bottom: 0px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+

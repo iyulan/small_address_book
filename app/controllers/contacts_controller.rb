@@ -34,9 +34,11 @@ class ContactsController < ApplicationController
   end
 
   def import
-    @errors = Contact::ImportCSV.perform(params[:file].tempfile)
+    return redirect_to contacts_path, alert: t('.blank') if params[:file].blank?
+    import_file
     if @errors.present?
-      render :import
+      load_contacts
+      render :index
     else
       redirect_to contacts_path, notice: t('.success')
     end
@@ -53,6 +55,10 @@ class ContactsController < ApplicationController
   end
 
   private
+
+  def import_file
+    @errors = Contact::ImportCSV.perform(params[:file].tempfile)
+  end
 
   def share_contact
     ContactMailer.share(@contact, params[:mail_to]).deliver_now if params[:mail_to].blank?
@@ -90,6 +96,6 @@ class ContactsController < ApplicationController
   end
 
   def contact_scope
-    Contact.all
+    Contact.order('lower(last_name)')
   end
 end

@@ -1,20 +1,19 @@
 en:
   contacts:
+    back: '< Back'
+    add: '+ add'
     edit:
       cancel: 'Cancel'
     index:
       title: 'Contacts'
-      table:
-        full_name: 'Full name'
-        emails: 'Emails'
-        phones: 'Phones'
-      add: 'Add'
+      add: '+'
       import: 'Import'
       export: 'Export'
     import:
       title: 'Import'
       success: 'Contacts imported!'
       failed: 'Contacts imported with fail!'
+      blank: 'Choose file'
     new:
       title: 'Contact'
     show:
@@ -30,16 +29,3 @@ en:
   mailer:
     contact:
       subject: "Share info about %{full_name}"
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            first_name:
-              blank: can't be blank
-            last_name:
-              blank: can't be blank
-            full_name:
-              blank: can't be blank
-              taken: can't be taken
-

@@ -1,17 +1,21 @@
-h3 = t('.title')
+= render 'errors'
 
-p = link_to t('.add'), new_contact_path
+.table-wrapper
+  .table-scroll
+    table
+      thead
+        tr
+          th
+            h3#contacts = t('.title')
+            h3#add = link_to t('.add'), new_contact_path
+      tfoot
+        tr
+          th
+            h3#contacts = render 'import_form'
+            h3#add = button_to t('.export'), export_contacts_path, method: :get
+      tbody
+        = render partial: 'contact', collection: @contacts
 
-p = link_to t('.export'), export_contacts_path
 
-= render 'import_form'
 
-table
-  thead
-    tr
-      th= t('.table.full_name')
-      th= t('.table.emails')
-      th= t('.table.phones')
-      th
-  tbody
-    = render partial: 'contact', collection: @contacts
+

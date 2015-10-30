@@ -1,0 +1,3 @@
+- if @errors || @contact.try(:errors).present?
+  #errors
+    = view_errors(@errors || @contact.try(:errors))

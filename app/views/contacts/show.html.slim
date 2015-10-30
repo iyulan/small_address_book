@@ -1,19 +1,25 @@
-h3 = @contact.full_name
+.actions
+  p.left = link_to t('contacts.back'), contacts_path
 
-= link_to '<-', contacts_path
+.show
+  h3 = @contact.full_name
+  div.contacts
+    .left
+      ul#contacts-block = t('.phones')
+      - @contact.phones_list.each do |phone|
+        li = phone
 
-ul = t('.phones')
-- @contact.phones_list.each do |phone|
-  li = phone
+    .right
+      ul.text-right = t('.emails')
+      - @contact.emails_list.each do |email|
+        li.text-right = link_to email, "mailto:#{email}"
 
-ul = t('.emails')
-- @contact.emails_list.each do |email|
-  li = email
+  div.show-footer
+    .left
+      = form_tag share_contact_path(@contact), method: :get do
+        = text_field_tag :mail_to, '', placeholder: 'user@example.com'
+        = submit_tag t('.share')
+    .right
+      = button_to t('.delete'), contact_path(@contact), method: :delete, data: { confirm: t('.delete_confirm') }
+    .right = button_to t('.edit'), edit_contact_path(@contact), method: :get
 
-p = link_to t('.edit'), edit_contact_path(@contact)
-p = link_to t('.delete'), contact_path(@contact), method: :delete, data: { confirm: t('.delete_confirm') }
-
-h3 = t('.share')
-= form_tag share_contact_path(@contact), method: :get do
-  = text_field_tag :mail_to, '', placeholder: 'user@example.com'
-  = submit_tag t('.share')

@@ -9,7 +9,7 @@ describe ContactsController do
     it 'correct response code, template and instance' do
       expect(response).to be_success
       expect(response).to render_template(:index)
-      expect(assigns(:contacts)).to eq(contacts)
+      expect(assigns(:contacts)).to match_array(contacts)
     end
   end
 
@@ -83,7 +83,7 @@ describe ContactsController do
       end
 
       it 'render import template' do
-        expect(response).to render_template(:import)
+        expect(response).to render_template(:index)
       end
     end
   end

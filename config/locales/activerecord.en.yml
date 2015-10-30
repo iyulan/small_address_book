@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            first_name:
+              blank: First Name cannot be blank
+            last_name:
+              blank: Last Name cannot be blank
+            full_name:
+              blank: Full Name cannot be blank
+              taken: Full Name cannot be taken
+            emails:
+              blank: E-mails cannot be blank
+            phones:
+              blank: Phones cannot be blank
+    models:
+      contact: 'Contact'
+    attributes:
+      contact:
+        first_name: 'First Name'
+        last_name: 'Last Name'
+        full_name: 'Full Name'
+        emails: 'E-mails'
+        phones: 'Phones'

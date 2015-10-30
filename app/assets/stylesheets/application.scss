@@ -1,2 +1,88 @@
 //= require_tree .
 //= require_self
+@import 'variables';
+
+body {
+  padding: 40px;
+  text-align: center;
+  font-family: Helvetica;
+  color: $text_color;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(21, 125, 251);
+}
+
+a:hover {
+  color: rgb(200, 199, 204)
+}
+
+input[type='submit'] {
+  background: white;
+  cursor: pointer;
+  margin-right: 2px;
+  color: $text_color;
+  height: auto;
+  width: auto;
+}
+
+input[type='file'] {
+  width: 250px;
+}
+
+input {
+  font-size: 16px;
+  color: $text_color;
+  font-family: Helvetica;
+  margin-bottom: 10px;
+  height: 24px;
+  width: 200px;
+}
+
+label {
+  margin-right: 4px;
+  text-align: left;
+  font-weight: bold;
+}
+
+ul {
+  text-align: left;
+  padding-left: 0px;
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+  text-align: left;
+  height: 22px;
+}
+
+.message {
+  line-height: 40px;
+  font-weight: bold;
+  width: $width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+#flash_notice {
+  @extend .message;
+  background-color: #5db756;
+  height: 40px;
+}
+
+#flash_alert{
+  @extend .message;
+  background-color: $alert_color;
+  height: 40px;
+}
+
+#errors {
+  @extend .message;
+  background-color: $alert_color;
+  min-height: 20px;
+  overflow: hidden;
+}
