@@ -2,6 +2,10 @@ h3 = t('.title')
 
 p = link_to t('.add'), new_contact_path
 
+p = link_to t('.export'), export_contacts_path
+
+= render 'import_form'
+
 table
   thead
     tr

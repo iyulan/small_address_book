@@ -33,6 +33,20 @@ class ContactsController < ApplicationController
     redirect_to contacts_path
   end
 
+  def import
+    @errors = Contact::ImportCSV.perform(params[:file].tempfile)
+    if @errors.present?
+      render :import
+    else
+      redirect_to contacts_path, notice: t('.success')
+    end
+  end
+
+  def export
+    filename = Contact::ExportCSV.perform(Contact.includes(:emails, :phones))
+    send_file(filename, filename: 'contacts.csv', type: 'application/csv')
+  end
+
   private
 
   def load_contacts

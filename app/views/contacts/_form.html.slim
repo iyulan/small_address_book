@@ -1,5 +1,7 @@
 = link_to t('contacts.edit.cancel'), @contact
 
+= view_errors(@contact.errors)
+
 = nested_form_for(@contact) do |f|
   = f.text_field :first_name
   = f.text_field :last_name

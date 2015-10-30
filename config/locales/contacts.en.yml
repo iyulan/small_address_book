@@ -9,6 +9,12 @@ en:
         emails: 'Emails'
         phones: 'Phones'
       add: 'Add'
+      import: 'Import'
+      export: 'Export'
+    import:
+      title: 'Import'
+      success: 'Contacts imported!'
+      failed: 'Contacts imported with fail!'
     new:
       title: 'Contact'
     show:
@@ -17,4 +23,16 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       delete_confirm: 'Are you sure?'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: can't be blank
+            last_name:
+              blank: can't be blank
+            full_name:
+              blank: can't be blank
+              taken: can't be taken
 

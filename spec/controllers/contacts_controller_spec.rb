@@ -61,4 +61,30 @@ describe ContactsController do
       expect(response).to redirect_to(contacts_path)
     end
   end
+
+  describe 'POST import' do
+    context 'when valid file' do
+      before do
+        file = fixture_file_upload('valid_contacts.csv', 'text/csv')
+        post :import, file: file
+        allow(Contact::ImportCSV).to receive(:perform).and_return([])
+      end
+
+      it 'redirect to contacts_path' do
+        expect(response).to redirect_to(contacts_path)
+      end
+    end
+
+    context 'when invalid file' do
+      before do
+        file = fixture_file_upload('invalid_contacts.csv', 'text/csv')
+        post :import, file: file
+        allow(Contact::ImportCSV).to receive(:perform).and_return(['error'])
+      end
+
+      it 'render import template' do
+        expect(response).to render_template(:import)
+      end
+    end
+  end
 end
